@@ -104,7 +104,11 @@ class Pytifylib:
         return list
 
     def _get_song_uri_at_index(self, index):
-        return str(self._songs[index]['href'])
+        if len(self._songs) != 0:
+            return str(self._songs[index]['href'])
+        else:
+            print("No song has been found related to this pattern.")
+            exit(2)
 
     def _get_song_name_at_index(self, index):
         return str('%s - %s' % (self._songs[index]['artist'], self._songs[index]['song']))
