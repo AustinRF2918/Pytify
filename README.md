@@ -1,14 +1,12 @@
 Pytify
 =============
 
-[![Code Climate](https://codeclimate.com/github/bjarneo/Pytify/badges/gpa.svg)](https://codeclimate.com/github/bjarneo/Pytify)
-
 Search and start songs from command line.<br>
 Should work in Linux and OS X.<br>
 Supports both python 2 and 3. <br>
 
-![Image of terminal]
-(http://i.imgur.com/zlt3f8P.gif)
+Just run 'pytify "Artist" "Song"' or 'pytify "Artist" "Album"' or whatever and hopefully
+you typed it right :). It's like a Google I Feel Lucky for Spotify in the Terminal.
 
 
 ## Installation
@@ -25,17 +23,10 @@ $ sudo python setup.py install
 
 ### Usage
 ```bash
-# To start the app type
-$ pytify
-
-# next song
-$ pytify -n
-
-# prev song
-$ pytify -p
-
-# play and pause song
-$ pytify -pp
+# To use I Feel Lucky mode, just type
+$ pytify "artist" "song"
+# To use Search mode, type
+$ pytify "artist" "song" -l
 ```
 
 ### Dependency
