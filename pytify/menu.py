@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import curses
 from curses import panel
 from pytify.strategy import get_pytify_class_by_platform
+from sys import platform
 
 
 """
@@ -10,24 +11,44 @@ from pytify.strategy import get_pytify_class_by_platform
 
 
 class Menu(object):
-    def __init__(self, items, stdscreen):
-        self.pytify = get_pytify_class_by_platform()()
-        self.window = stdscreen.subwin(0, 0)
-        self.window.keypad(1)
-        self.panel = panel.new_panel(self.window)
-        self.panel.hide()
-        panel.update_panels()
+    def __init__(self, items, stdscreen, IFL):
+        if not IFL:
+            self.pytify = get_pytify_class_by_platform()()
+            self.window = stdscreen.subwin(0, 0)
+            self.window.keypad(1)
+            self.panel = panel.new_panel(self.window)
+            self.panel.hide()
+            panel.update_panels()
+            self.position = 2
+            self.items = items
+            self.song_length = len(items) - 1
 
-        self.position = 2
-        self.items = items
-        self.song_length = len(items) - 1
+            self.items.append(' ')
+            self.items.append('<UP> and <DOWN> for navigation.')
+            self.items.append('<Enter> to select song.')
+            self.items.append('<Esc> for search.')
+            self.items.append('<LEFT> and <RIGHT> for prev/next song.')
+            self.items.append('<SPACEBAR> for play/pause.')
+        else:
+            self.position = 2
+            self.items = items
+            self.window = stdscreen.subwin(0, 0)
+            self.window.keypad(1)
+            self.panel = panel.new_panel(self.window)
+            self.panel = panel.new_panel(self.window)
+            self.panel.hide()
+            panel.update_panels()
+            self.pytify = get_pytify_class_by_platform()()
+            self.pytify.listen(1)
+            self.pytify.play_pause()
+            self.panel.hide()
+            self.window.clear()
+            curses.endwin();
+            exit();
 
-        self.items.append(' ')
-        self.items.append('<UP> and <DOWN> for navigation.')
-        self.items.append('<Enter> to select song.')
-        self.items.append('<Esc> for search.')
-        self.items.append('<LEFT> and <RIGHT> for prev/next song.')
-        self.items.append('<SPACEBAR> for play/pause.')
+
+    def play_pause(self):
+        self.pytify.play_pause()
 
     def navigate(self, n):
         self.position += n

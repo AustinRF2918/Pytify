@@ -10,6 +10,9 @@ class Pytifylib:
     # hold songs
     _songs = {}
 
+    # Hold "I Feel Lucky" Song.
+    _song = {}
+
     # history
     _history = []
 
@@ -17,6 +20,9 @@ class Pytifylib:
     _limit = 15
 
     # Search for song / album / artist
+
+    #Search fills songs with response JSON
+    #All we have to do is automate getting the FIRST thing.
     def search(self, query):
         try:
             search = '+'.join(query.split())
@@ -63,6 +69,11 @@ class Pytifylib:
                 'song': song_name,
                 'album': album_name
             }
+            _song = data['tracks']['items'][0];
+
+
+    def get_song(self):
+        return self._song
 
     def get_songs(self):
         return self._songs
