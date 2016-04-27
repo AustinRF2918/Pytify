@@ -9,7 +9,7 @@ Start songs from command line.<br>
 Should work in Linux and OS X. (As far as I know.)<br>
 Supports both Python 2 and 3. <br>
 
-Just run 'spotty "Artist" "Song"' or 'pytify "Artist" "Album"' or whatever and hopefully
+Just run 'spotty "Artist" "Song"' or 'spotty "Artist" "Album"' or whatever and hopefully
 you typed it right :). It's like a Google I Feel Lucky for Spotify in the Terminal.
 
 ### Note
