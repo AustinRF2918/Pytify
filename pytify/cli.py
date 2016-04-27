@@ -143,7 +143,8 @@ class App:
                     print("Already in parsedFlags")
             else:
                 parsedFuzzy.append(sys.argv[i])
-                print("Placing in parsedFuzzy.")
+                if debug:
+                    print("Placing in parsedFuzzy.")
 
         if debug:
             print("Parsed Fuzzy Data:")
