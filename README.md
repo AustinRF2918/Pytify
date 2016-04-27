@@ -1,4 +1,4 @@
-Pytify
+Spotty
 =============
 
 ### Original Repo
@@ -9,7 +9,7 @@ Start songs from command line.<br>
 Should work in Linux and OS X. (As far as I know.)<br>
 Supports both Python 2 and 3. <br>
 
-Just run 'pytify "Artist" "Song"' or 'pytify "Artist" "Album"' or whatever and hopefully
+Just run 'spotty "Artist" "Song"' or 'pytify "Artist" "Album"' or whatever and hopefully
 you typed it right :). It's like a Google I Feel Lucky for Spotify in the Terminal.
 
 ### Note
@@ -27,9 +27,9 @@ $ sudo python setup.py install
 ### Usage
 ```bash
 # To use I Feel Lucky mode, just type
-$ pytify "artist" "song"
+$ spotty "artist" "song"
 # To use Search mode, type
-$ pytify "artist" "song" -l
+$ spotty "artist" "song" -l
 ```
 
 ### Dependency
@@ -40,7 +40,7 @@ pip install requests
 ### Contributing
 Contributions are appreciated.
 
-### Contributors
+### Contributors On Original Pytify Project
 - [@joined](https://github.com/joined/) - OS X
 - [@adam410](https://github.com/adam410/) - OS X issue
 - [@Newky](https://github.com/Newky) - Better structure
