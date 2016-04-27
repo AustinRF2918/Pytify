@@ -47,14 +47,27 @@ class App:
         parser.add_argument('-l', help='Shows list of songs instead of IFL', action='store_true')
 
 
+        #Make sure they didn't put more than 3 things in.
+        #Done before we ever parse.
+
+#          # HACKY #3333333333333333
+        if len(sys.argv) > 4:
+            print("Non-parseable state")
+            exit(2)
+#          # HACKY #3333333333333333
+
+        #CL Arguments
         args = parser.parse_args()
 
+        
         #Our simple little debug flag :)
         if args.d:
             debug = True;
         else:
             debug = False;
 
+        #Show the introduction text originally introduced
+        #With this.
         if args.c:
             self.intro();
 
@@ -63,6 +76,7 @@ class App:
             data = self.getParseableData(debug)
         else:
             print("Non-parseable state")
+            exit(1);
 
         listString = ''
 
@@ -169,7 +183,6 @@ class App:
             if len(currentParse) != 0:
                 flags = flags + 1
 
-        #It works :)
         if debug == True:
             print("Amount of flags found: " + str(flags))
 
@@ -191,7 +204,6 @@ class App:
             state = 3 #Fuzzy.
         else:
             state = 4 #Bad State.
-
 
         return state
 
